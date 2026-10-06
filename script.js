@@ -7,6 +7,7 @@ function slideright() {
     document.querySelector("#app").style.transform = "translateX(0%)";
 }
 
+
 function showform() {
     document.querySelector("#exp-form").style.display = "block";
 }
@@ -18,6 +19,8 @@ function updatebudget() {
     var b = document.querySelector("#budget").value;
     if (b == 0) {
         alert("please enter a budget");
+    }else if (b >= 50000) {
+        alert("you are'nt a rich guy bro");
     } else {
         var finalb = b - expenses;  
         document.querySelector("#total-budget").innerText = "₹" + b;
@@ -63,8 +66,8 @@ function addexp() {
     var finalb = document.querySelector("#remaining-budget").innerText;
     finalb = finalb.replace("₹", "");
     finalb = parseInt(finalb);
-    if (cost == 0 || date == 0) {
-        alert("please enter cost and date");
+    if (cost <= 0 || date == 0) {
+        alert("please enter valid cost and date");
     } else if (cost>finalb) {
       
         alert("budget issue bro you still need " + Math.abs(cost-finalb));
